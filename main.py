@@ -10,21 +10,16 @@ import os
 
 ip = os.environ['REMOTE_ADDR']
 cheker = ip.split('.')
-if cheker[0] == '10':
-	server = 'http://10.1.1.21/~chyngyz'
-else:
-	server = 'http://212.112.98.181:22080/~chyngyz'
-
 print "Content-type:text/html\r\n\r\n"
 beg = '''<html>
 <head>
 <meta charset=utf-8 />
 <title>Kraken Music App</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="%s/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+<link href="/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script type="text/javascript" src="%s/js/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="%s/js/jplayer.playlist.min.js"></script>
+<script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="/js/jplayer.playlist.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
@@ -32,7 +27,7 @@ $(document).ready(function(){
 	new jPlayerPlaylist({
 		jPlayer: "#jquery_jplayer_1",
 		cssSelectorAncestor: "#jp_container_1"
-	}, [''' % (server, server, server)
+	}, ['''
 center = '''], {
 		swfPath: "js",
 		supplied: "oga, mp3",
@@ -140,7 +135,6 @@ try:
 		else:
 			print '}'
 	print center
-	print '<h2><a href="%s/cgi-bin/last.py?artist=%s">Get same artists</a></h2>' % (server, query)
 	print end
 except Exception, e:
 	print e

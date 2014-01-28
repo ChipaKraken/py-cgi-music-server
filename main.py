@@ -8,8 +8,6 @@ import urllib2
 import json
 import os
 
-ip = os.environ['REMOTE_ADDR']
-cheker = ip.split('.')
 print "Content-type:text/html\r\n\r\n"
 beg = '''<html>
 <head>
